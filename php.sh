@@ -20,7 +20,7 @@ yum install openssl openssl-devel -y
 
 # GD
 yum install libjpeg libjpeg-devel -y
-yum install libpng libpng-devel y
+yum install libpng libpng-devel -y
 
 if [ ! -d "$package/php" ]; then
 	mkdir -p $package/php
