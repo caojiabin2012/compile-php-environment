@@ -9,9 +9,7 @@ if [ ! -d "$package/yaf" ]; then
     mkdir -p $package/yaf
 fi
 rm -rf $package/yaf/*
-wget -O $package/yaf.tgz ${url} 
-
-tar -zxvf $package/yaf.tgz -C $package/yaf/ --strip-components 1
+wget -O $package/yaf.tgz ${PHP_EXT_YAF_DOWNLOAD_URL} 
 cd $package/yaf 
 $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
