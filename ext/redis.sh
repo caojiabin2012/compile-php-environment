@@ -17,7 +17,8 @@ $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
 make install
 if [ $? == 0 ]; then
-    echo -e redis install success. `date` >> install.log
+    echo -e extension=redis.so >> $PHP_CONFIG_PATH/php.ini 
+    echo -e redis install success. `date` >> $prj_path/install.log
 else
-    echo -e redis install fail. `date` >> install.log
+    echo -e redis install fail. `date` >> $prj_path/install.log
 fi

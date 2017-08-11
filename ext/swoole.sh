@@ -16,8 +16,9 @@ cd $package/swoole
 $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
 make install
-if [ $? eq 0 ]; then
-    echo -e swoole install success. `date` >> install.log
+if [ $? == 0 ]; then
+    echo -e extension=swoole.so >> $PHP_CONFIG_PATH/php.ini 
+    echo -e swoole install success. `date` >> $prj_path/install.log
 else
-    echo -e swoole install fail. `date` >> install.log
+    echo -e swoole install fail. `date` >> $prj_path/install.log
 fi

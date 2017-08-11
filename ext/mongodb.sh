@@ -16,7 +16,8 @@ ${PHP_PATH}/bin/phpize
 ./configure --with-php-config=${PHP_PATH}/bin/php-config
 make install 
 if [ $? == 0 ]; then
-    echo -e mongodb install success. `date` >> install.log
+    echo -e extension=mongodb.so >> $PHP_CONFIG_PATH/php.ini 
+    echo -e mongodb install success. `date` >> $prj_path/install.log
 else
-    echo -e mongodb install fail. `date` >> install.log
+    echo -e mongodb install fail. `date` >> $prj_path/install.log
 fi

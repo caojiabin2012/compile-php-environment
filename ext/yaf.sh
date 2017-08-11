@@ -18,7 +18,8 @@ $PHP_PATH/bin/phpize
 #make test | echo y  
 make install 
 if [ $? == 0 ]; then
-    echo -e yaf install success. `date` >> install.log
+    echo -e extension=yaf.so >> $PHP_CONFIG_PATH/php.ini 
+    echo -e yaf install success. `date` >> $prj_path/install.log
 else
-    echo -e yaf install fail. `date` >> install.log
+    echo -e yaf install fail. `date` >> $prj_path/install.log
 fi
