@@ -9,7 +9,7 @@ if [ ! -d "$package/mongodb" ]; then
     mkdir -p $package/mongodb
 fi
 rm -rf $package/mongodb/*
-wget -O $package/mongodb/mongodb.tar $PHP_EXT_MONGODB_DOWNLOAD_URL 
+wget -O $package/mongodb.tar $PHP_EXT_MONGODB_DOWNLOAD_URL 
 tar -zxvf $package/mongodb.tar -C $package/mongodb/ --strip-components 1
 cd $package/mongodb 
 ${PHP_PATH}/bin/phpize
