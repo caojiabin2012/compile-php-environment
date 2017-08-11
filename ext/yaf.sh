@@ -10,6 +10,7 @@ if [ ! -d "$package/yaf" ]; then
 fi
 rm -rf $package/yaf/*
 wget -O $package/yaf.tgz ${PHP_EXT_YAF_DOWNLOAD_URL} 
+tar -zxvf $package/yaf.tar -C $package/yaf/ --strip-components 1
 cd $package/yaf 
 $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
