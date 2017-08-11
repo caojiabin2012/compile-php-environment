@@ -10,6 +10,10 @@ echo -e nginx start `date`  >> install.log
 echo "install openssl:"
 yum install openssl openssl-devel -y
 
+if [ ! -d "$NGINX_PATH" ]; then
+	mkdir -p $NGINX_PATH
+fi
+
 if [ ! -d "$package/nginx" ]; then
 	mkdir $package/nginx
 fi
