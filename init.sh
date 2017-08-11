@@ -1,4 +1,5 @@
 #!bin/bash
+set -e
 
 echo -e "*****************************************" > install.log
 echo -e "*   Author:caojiabin2012@gmail.com      *" >> install.log

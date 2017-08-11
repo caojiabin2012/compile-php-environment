@@ -1,4 +1,6 @@
 #!/bin/bash 
+set -e
+
 if  [ ! -n "$prj_path" ] ;then
     prj_path=$(cd $(dirname $0); pwd -P)
 fi
