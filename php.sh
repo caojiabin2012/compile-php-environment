@@ -8,21 +8,24 @@ source $prj_path/config.sh
 package=$prj_path/package
 echo -e php start `date`  >> install.log
 
-# xml
-echo "install xml:"
-yum install libxml2 libxml2-devel -y
+if which apt-get >/dev/null; then
+    echo "ubuntu"
+elif which yum >/dev/null; then
+    # xml
+    yum install libxml2 libxml2-devel -y
 
-# curl
-echo "install curl:"
-yum install curl curl-devel -y
+    # curl
+    yum install curl curl-devel -y
 
-# openssl
-echo "install openssl:"
-yum install openssl openssl-devel -y
+    # openssl
+    yum install openssl openssl-devel -y
 
-# GD
-yum install libjpeg libjpeg-devel -y
-yum install libpng libpng-devel -y
+    # GD
+    yum install libjpeg libjpeg-devel -y
+    yum install libpng libpng-devel -y
+elif which brew >/dev/null; then
+    echo "Darwin"
+fi
 
 if [ ! -d "$package/php" ]; then
 	mkdir -p $package/php

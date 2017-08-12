@@ -9,15 +9,20 @@ package=$prj_path/package
 echo -e nginx start `date`  >> install.log
 
 # openssl
-echo "install openssl:"
-yum install openssl openssl-devel -y
+if which apt-get >/dev/null; then
+    echo "ubuntu"
+elif which yum >/dev/null; then
+    yum install openssl openssl-devel -y
+elif which brew >/dev/null; then
+    echo "Darwin"
+fi
 
 if [ ! -d "$NGINX_PATH" ]; then
-	mkdir -p $NGINX_PATH
+    mkdir -p $NGINX_PATH
 fi
 
 if [ ! -d "$package/nginx" ]; then
-	mkdir $package/nginx
+    mkdir $package/nginx
 fi
 rm -rf $package/nginx/*
 wget -O $package/nginx.tar.gz $NGINX_DOWNLOAD_URL 
@@ -27,8 +32,7 @@ cd $package/nginx
 ./configure --prefix=$NGINX_PATH --user=root --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module
 make install
 if [ $? == 0 ]; then
-    echo -e nginx install success. `date` >> install.log
+    echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
 else
     echo -e nginx install fail. `date` >> install.log
 fi
-echo -e nginx end `date` >> install.log
