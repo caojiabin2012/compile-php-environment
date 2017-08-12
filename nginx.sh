@@ -9,10 +9,10 @@ package=$prj_path/package
 echo -e nginx start `date`  >> install.log
 
 # openssl
-if which apt-get >/dev/null; then
-    echo "ubuntu"
+if which yum >/dev/null; then
+    yum install -y openssl openssl-devel
 elif which yum >/dev/null; then
-    yum install openssl openssl-devel -y
+    apt install -y libltdl-dev libssl-dev
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
