@@ -12,8 +12,8 @@ NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.12.1.tar.gz
 NGINX_VERSION=1.12.1
 
 # ext swoole
-PHP_EXT_SWOOLE_DOWNLOAD_URL=https://github.com/swoole/swoole-src/archive/v1.9.17.tar.gz
-PHP_EXT_SWOOLE_VERSION=1.9.17
+PHP_EXT_SWOOLE_DOWNLOAD_URL=http://pecl.php.net/get/swoole-1.9.18.tgz
+PHP_EXT_SWOOLE_VERSION=1.9.18
 
 # ext yaf
 PHP_EXT_YAF_DOWNLOAD_URL=http://pecl.php.net/get/yaf-3.0.5.tgz
