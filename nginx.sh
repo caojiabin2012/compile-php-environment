@@ -22,7 +22,7 @@ if [ ! -d "$NGINX_PATH" ]; then
 fi
 
 if [ ! -d "$package/nginx" ]; then
-    mkdir $package/nginx
+    mkdir -p $package/nginx
 fi
 rm -rf $package/nginx/*
 wget -O $package/nginx.tar.gz $NGINX_DOWNLOAD_URL 
