@@ -33,6 +33,8 @@ cd $package/nginx
 make install
 if [ $? == 0 ]; then
     echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
+    rm $NGINX_PATH/conf/nginx.conf
+    cp $prj_path/nginx-config/nginx.conf $NGINX_PATH/conf/
 else
     echo -e nginx install fail. `date` >> install.log
 fi
