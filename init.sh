@@ -6,9 +6,10 @@ echo -e "*   Author:caojiabin2012@gmail.com      *" >> install.log
 echo -e "*****************************************" >> install.log
 prj_path=$(cd $(dirname $0); pwd -P)
 
+source $prj_path/config.sh
 # kill
-ps -ef | grep php-fpm| grep -v grep|awk '{print $2}' | xargs kill -9
-ps -ef | grep nginx| grep -v grep|awk '{print $2}' | xargs kill -9
+#ps -ef | grep php-fpm| grep -v grep|awk '{print $2}' | xargs kill -9
+#ps -ef | grep nginx| grep -v grep|awk '{print $2}' | xargs kill -9
 
 # install
 bash nginx.sh

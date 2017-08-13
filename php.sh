@@ -25,6 +25,8 @@ if which yum >/dev/null; then
     # mcrypt
     yum install -y libmcrypt libmcrypt-devel
 
+    yum install -y m4 autoconf
+
 elif which apt-get >/dev/null; then
     # xml
     apt-get install -y libxml2-dev
@@ -41,6 +43,7 @@ elif which apt-get >/dev/null; then
 
     # mcrypt
     apt-get install -y libmcrypt-dev
+    apt-get install -y m4 autoconf
 
 elif which brew >/dev/null; then
     echo "Darwin"
