@@ -12,7 +12,7 @@ echo -e nginx start `date`  >> install.log
 if which yum >/dev/null; then
     yum install -y openssl openssl-devel
 elif which apt-get >/dev/null; then
-    apt install -y libltdl-dev libssl-dev
+    apt install -y libltdl-dev libssl-dev libpcre3 libpcre3-dev
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
