@@ -42,7 +42,7 @@ elif which apt-get >/dev/null; then
     apt-get install -y libpng-dev 
 
     # mcrypt
-    apt-get install -y libmcrypt-dev
+    #apt-get install -y libmcrypt-dev
     apt-get install -y m4 autoconf
 
 elif which brew >/dev/null; then
@@ -57,7 +57,7 @@ wget -O $package/php.tar.bz2 ${PHP_DOWNLOAD_URL}
 
 tar -jxvf $package/php.tar.bz2 -C $package/php/ --strip-components 1
 cd $package/php 
-./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --with-mcrypt --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
+./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
 make install
 if [ $? == 0 ]; then
     cp php.ini-production $PHP_CONFIG_PATH/php.ini
