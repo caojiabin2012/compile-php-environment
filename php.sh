@@ -53,7 +53,7 @@ if [ ! -d "$package/php" ]; then
 	mkdir -p $package/php
 fi
 rm -rf $package/php/*
-if [ ! -f `$package/php-$PHP_VERION.tar.bz2`]; then
+if [ ! -f '$package/php-$PHP_VERION.tar.bz2' ]; then
     wget -O $package/php-$PHP_VERSION.tar.bz2 ${PHP_DOWNLOAD_URL} 
 fi
 

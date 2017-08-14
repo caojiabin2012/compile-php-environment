@@ -11,7 +11,7 @@ if [ ! -d "$package/redis" ]; then
     mkdir -p $package/redis
 fi
 rm -rf $package/redis/*
-if [ ! -f `$package/redis-$PHP_EXT_REDIS_VERSION.tgz`]; then
+if [ ! -f '$package/redis-$PHP_EXT_REDIS_VERSION.tgz' ]; then
     wget -O $package/redis-$PHP_EXT_REDIS_VERSION.tgz $PHP_EXT_REDIS_DOWNLOAD_URL 
 fi
 

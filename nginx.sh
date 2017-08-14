@@ -25,7 +25,7 @@ if [ ! -d "$package/nginx" ]; then
     mkdir -p $package/nginx
 fi
 rm -rf $package/nginx/*
-if [ ! -f `$package/nginx-$NGINX_VERSION.tar.gz`]; then
+if [ ! -f '$package/nginx-$NGINX_VERSION.tar.gz' ]; then
     wget -O $package/nginx-$NGINX_VERSION.tar.gz $NGINX_DOWNLOAD_URL 
 fi
 
