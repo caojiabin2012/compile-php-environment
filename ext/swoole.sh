@@ -11,9 +11,11 @@ if [ ! -d "$package/swoole" ]; then
     mkdir $package/swoole
 fi
 rm -rf $package/swoole/*
-wget -O $package/swoole.tgz $PHP_EXT_SWOOLE_DOWNLOAD_URL 
+if [ ! -f `$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz`]; then
+    wget -O $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz $PHP_EXT_SWOOLE_DOWNLOAD_URL 
+fi
 
-tar -zxvf $package/swoole.tgz -C $package/swoole/ --strip-components 1
+tar -zxvf $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz -C $package/swoole/ --strip-components 1
 cd $package/swoole 
 $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config

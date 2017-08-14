@@ -11,9 +11,11 @@ if [ ! -d "$package/redis" ]; then
     mkdir -p $package/redis
 fi
 rm -rf $package/redis/*
-wget -O $package/redis.tgz $PHP_EXT_REDIS_DOWNLOAD_URL 
+if [ ! -f `$package/redis-$PHP_EXT_REDIS_VERSION.tgz`]; then
+    wget -O $package/redis-$PHP_EXT_REDIS_VERSION.tgz $PHP_EXT_REDIS_DOWNLOAD_URL 
+fi
 
-tar -zxvf $package/redis.tgz -C $package/redis/ --strip-components 1
+tar -zxvf $package/redis-$PHP_EXT_REDIS_VERSION.tgz -C $package/redis/ --strip-components 1
 cd $package/redis 
 $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config

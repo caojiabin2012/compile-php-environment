@@ -53,9 +53,11 @@ if [ ! -d "$package/php" ]; then
 	mkdir -p $package/php
 fi
 rm -rf $package/php/*
-wget -O $package/php.tar.bz2 ${PHP_DOWNLOAD_URL} 
+if [ ! -f `$package/php-$PHP_VERION.tar.bz2`]; then
+    wget -O $package/php-$PHP_VERSION.tar.bz2 ${PHP_DOWNLOAD_URL} 
+fi
 
-tar -jxvf $package/php.tar.bz2 -C $package/php/ --strip-components 1
+tar -jxvf $package/php-$PHP_VERSION.tar.bz2 -C $package/php/ --strip-components 1
 cd $package/php 
 ./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
 make install

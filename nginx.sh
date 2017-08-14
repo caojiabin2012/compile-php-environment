@@ -25,9 +25,11 @@ if [ ! -d "$package/nginx" ]; then
     mkdir -p $package/nginx
 fi
 rm -rf $package/nginx/*
-wget -O $package/nginx.tar.gz $NGINX_DOWNLOAD_URL 
+if [ ! -f `$package/nginx-$NGINX_VERSION.tar.gz`]; then
+    wget -O $package/nginx-$NGINX_VERSION.tar.gz $NGINX_DOWNLOAD_URL 
+fi
 
-tar -zxvf $package/nginx.tar.gz -C $package/nginx/ --strip-components 1 
+tar -zxvf $package/nginx-$NGINX_VERSION.tar.gz -C $package/nginx/ --strip-components 1 
 cd $package/nginx 
 ./configure --prefix=$NGINX_PATH --user=root --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module
 make install
