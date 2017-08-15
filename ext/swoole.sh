@@ -11,7 +11,7 @@ if [ ! -d "$package/swoole" ]; then
     mkdir $package/swoole
 fi
 rm -rf $package/swoole/*
-if [ ! -f '$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz' ]; then
+if [ ! -f "$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
     wget -O $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz $PHP_EXT_SWOOLE_DOWNLOAD_URL 
 fi
 

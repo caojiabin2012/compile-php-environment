@@ -10,7 +10,7 @@ if [ ! -d "$package/mongodb" ]; then
     mkdir -p $package/mongodb
 fi
 rm -rf $package/mongodb/*
-if [ ! -f '$package/mongodb-$PHP_EXT_MONGODB_VERSION.tgz' ]; then
+if [ ! -f "$package/mongodb-$PHP_EXT_MONGODB_VERSION.tgz" ]; then
     wget -O $package/mongodb-$PHP_EXT_MONGODB_VERSION.tar $PHP_EXT_MONGODB_DOWNLOAD_URL 
 fi
 tar -zxvf $package/mongodb-$PHP_EXT_MONGODB_VERSION.tar -C $package/mongodb/ --strip-components 1
