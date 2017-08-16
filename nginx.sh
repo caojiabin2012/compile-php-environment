@@ -40,8 +40,8 @@ make install
 if [ $? == 0 ]; then
     echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
     cp -rf $prj_path/nginx-config/* $NGINX_PATH/
-    sed -i 's/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/' $NGINX_PATH/conf/nginx.conf
-    sed -i 's/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/' $NGINX_PATH/conf/nginx.conf
+    sed -i "s/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf
+    sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf
 else
     echo -e nginx install fail. `date` >> install.log
 fi
