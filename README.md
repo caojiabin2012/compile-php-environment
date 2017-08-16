@@ -1,5 +1,4 @@
-# php-develop-environment
-php-develop-environment
+# CompilePHPEnvironment
 
 # 源码编译php开发环境
 * git clone 获取代码
