@@ -69,7 +69,7 @@ make install
 if [ $? == 0 ]; then
     cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
     sed -i "s/{{PHP_FPM_USER}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
-    sed -i "s/{{PHP_FPM_USER_GROUP}}/$PHP_FRM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
+    sed -i "s/{{PHP_FPM_USER_GROUP}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
     sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
     echo -e php install success. `date` >> install.log
 else
