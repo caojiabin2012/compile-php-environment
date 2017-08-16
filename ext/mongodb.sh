@@ -16,7 +16,7 @@ fi
 tar -zxvf $package/mongodb-$PHP_EXT_MONGODB_VERSION.tar -C $package/mongodb/ --strip-components 1
 cd $package/mongodb 
 ${PHP_PATH}/bin/phpize
-./configure --with-php-config=${PHP_PATH}/bin/php-config
+./configure --with-php-config=$PHP_PATH/bin/php-config
 make install 
 if [ $? == 0 ]; then
     echo -e extension=mongodb.so >> $PHP_CONFIG_PATH/php.ini 

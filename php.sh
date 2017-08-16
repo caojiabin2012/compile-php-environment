@@ -59,7 +59,7 @@ if [ ! -d "$package/php" ]; then
 fi
 rm -rf $package/php/*
 if [ ! -f "$package/php-$PHP_VERION.tar.bz2" ]; then
-    wget -O $package/php-$PHP_VERSION.tar.bz2 ${PHP_DOWNLOAD_URL} 
+    wget -O $package/php-$PHP_VERSION.tar.bz2 $PHP_DOWNLOAD_URL 
 fi
 
 tar -jxvf $package/php-$PHP_VERSION.tar.bz2 -C $package/php/ --strip-components 1
@@ -75,4 +75,3 @@ if [ $? == 0 ]; then
 else
     echo -e php install fail. `date` >> install.log
 fi
-echo -e php end `date` >> install.log
