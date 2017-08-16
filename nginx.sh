@@ -20,7 +20,11 @@ fi
 if [ ! -d "$NGINX_PATH" ]; then
     mkdir -p $NGINX_PATH
 fi
-
+if id -u $NGINX_USER >/dev/null 2>&1; then
+    echo "user exists"
+else
+    useradd $NGINX_USER  -s /sbin/nologin
+fi
 if [ ! -d "$package/nginx" ]; then
     mkdir -p $package/nginx
 fi
@@ -31,13 +35,13 @@ fi
 
 tar -zxvf $package/nginx-$NGINX_VERSION.tar.gz -C $package/nginx/ --strip-components 1 
 cd $package/nginx 
-./configure --prefix=$NGINX_PATH --user=root --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module
+./configure --prefix=$NGINX_PATH --user=$NGINX_USER --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module
 make install
 if [ $? == 0 ]; then
     echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
-    rm $NGINX_PATH/conf/nginx.conf
-    cp $prj_path/nginx-config/nginx.conf $NGINX_PATH/conf/
-    cp -rf $prj_path/nginx-config/vhosts/ $NGINX_PATH/
+    cp -rf $prj_path/nginx-config/* $NGINX_PATH/
+    sed -i 's/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/' $NGINX_PATH/conf/nginx.conf
+    sed -i 's/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/' $NGINX_PATH/conf/nginx.conf
 else
     echo -e nginx install fail. `date` >> install.log
 fi
