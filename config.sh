@@ -5,11 +5,17 @@ PHP_PATH=/usr/local/software/php/v718
 PHP_CONFIG_PATH=/usr/local/software/php/v718/etc
 PHP_DOWNLOAD_URL=http://cn.php.net/distributions/php-7.1.8.tar.bz2
 PHP_VERSION=7.1.8
+PHP_FPM_USER=fpm
+PHP_FPM_USER_GROUP=fpm
+PHP_FASTCGI_PORT=9000
 
 # nginx
 NGINX_PATH=/usr/local/software/nginx/1121
 NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.12.1.tar.gz
 NGINX_VERSION=1.12.1
+NGINX_PORT=80
+NGINX_USER=nginx
+NGINX_USER_GROUP=nginx
 
 # ext swoole
 PHP_EXT_SWOOLE_DOWNLOAD_URL=http://pecl.php.net/get/swoole-1.9.18.tgz

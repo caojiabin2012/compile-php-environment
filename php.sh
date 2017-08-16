@@ -48,6 +48,18 @@ elif which apt-get >/dev/null; then
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
+ 
+#create group if not exists  
+egrep "^$PHP_FPM_USER_GROUP" /etc/group >& /dev/null  
+if [ $? -ne 0 ]; then
+    groupadd $PHP_FPM_USER_GROUP 
+fi  
+      
+#create user if not exists  
+egrep "^$PHP_FPM_USER" /etc/passwd >& /dev/null  
+if [ $? -ne 0 ]; then  
+    useradd -g $PHP_FPM_USER_GROUP $PHP_FPM_USER  
+fi
 
 if [ ! -d "$package/php" ]; then
 	mkdir -p $package/php
@@ -62,9 +74,10 @@ cd $package/php
 ./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
 make install
 if [ $? == 0 ]; then
-    cp php.ini-production $PHP_CONFIG_PATH/php.ini
-    mv $PHP_PATH/etc/php-fpm.conf.default $PHP_PATH/etc/php-fpm.conf
-    mv $PHP_PATH/etc/php-fpm.d/www.conf.default $PHP_PATH/etc/php-fpm.d/www.conf 
+    cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
+    sed -i 's/{{PHP_FPM_USER}}/$PHP_FPM_USER/' $PHP_CONFIG_PATH/php-fpm.d/www.conf
+    sed -i 's/{{PHP_FPM_USER_GROUP}}/$PHP_FRM_USER_GROUP/' $PHP_CONFIG_PATH/php-fpm.d/www.conf
+    sed -i 's/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/' $PHP_CONFIG_PATH/php-fpm.d/www.conf
     echo -e php install success. `date` >> install.log
 else
     echo -e php install fail. `date` >> install.log
