@@ -5,7 +5,7 @@ if  [ ! -n "$prj_path" ] ;then
     prj_path=$(cd $(dirname $0); pwd -P)
 fi
 source $prj_path/config.sh
-source $prj_path/tools/bash.sh
+source $prj_path/tools/base.sh
 
 package=$prj_path/package
 
