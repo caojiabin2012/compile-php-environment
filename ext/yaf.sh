@@ -20,7 +20,7 @@ $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
 make install 
 if [ $? == 0 ]; then
-    run_cmd "`echo -e extension=yaf.so >> $PHP_CONFIG_PATH/php.inii`"
+    run_cmd "`echo -e extension=yaf.so >> $PHP_CONFIG_PATH/php.ini`"
     echo -e yaf install success. `date` >> $prj_path/install.log
 else
     echo -e yaf install fail. `date` >> $prj_path/install.log
