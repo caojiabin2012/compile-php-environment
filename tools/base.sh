@@ -16,7 +16,7 @@ function ensure_user() {
     if [ id -u $1 >/dev/null 2>&1 ]; then
         echo "user exists"
     else
-        run_cmd "$1 -s /sbin/nologin"
+        run_cmd "useradd $1 -s /sbin/nologin"
     fi
 }
 
