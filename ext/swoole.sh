@@ -5,12 +5,12 @@ if  [ ! -n "$prj_path" ] ;then
     prj_path=$(cd ../$(dirname $0); pwd -P)
 fi
 source $prj_path/config.sh
+source $prj_path/tools/base.sh
+
 package=$prj_path/package
 
-if [ ! -d "$package/swoole" ]; then
-    mkdir $package/swoole
-fi
-rm -rf $package/swoole/*
+ensure_dir "$package/swoole"
+remove_dir "$package/swoole/*"
 if [ ! -f "$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
     wget -O $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz $PHP_EXT_SWOOLE_DOWNLOAD_URL 
 fi
@@ -21,7 +21,7 @@ $PHP_PATH/bin/phpize
 ./configure --with-php-config=$PHP_PATH/bin/php-config
 make install
 if [ $? == 0 ]; then
-    echo -e extension=swoole.so >> $PHP_CONFIG_PATH/php.ini 
+    run_cmd "`echo -e extension=swoole.so >> $PHP_CONFIG_PATH/php.ini`" 
     echo -e swoole install success. `date` >> $prj_path/install.log
 else
     echo -e swoole install fail. `date` >> $prj_path/install.log
