@@ -5,6 +5,8 @@ if  [ ! -n "$prj_path" ] ;then
     prj_path=$(cd $(dirname $0); pwd -P)
 fi
 source $prj_path/config.sh
+source $prj_path/tools/base.sh
+
 package=$prj_path/package
 echo -e php start `date`  >> install.log
 
@@ -49,15 +51,9 @@ elif which brew >/dev/null; then
     echo "Darwin"
 fi
 
-if id -u $PHP_FPM_USER >/dev/null 2>&1; then
-    echo "user exists"
-else
-    useradd $PHP_FPM_USER  -s /sbin/nologin
-fi
-if [ ! -d "$package/php" ]; then
-	mkdir -p $package/php
-fi
-rm -rf $package/php/*
+ensure_user "$PHP_FPM_USER"
+ensure_dir "$package/php"
+remove_dir "$package/php/*"
 if [ ! -f "$package/php-$PHP_VERION.tar.bz2" ]; then
     wget -O $package/php-$PHP_VERSION.tar.bz2 $PHP_DOWNLOAD_URL 
 fi
@@ -68,9 +64,9 @@ cd $package/php
 make install
 if [ $? == 0 ]; then
     cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
-    sed -i "s/{{PHP_FPM_USER}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
-    sed -i "s/{{PHP_FPM_USER_GROUP}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
-    sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $PHP_CONFIG_PATH/php-fpm.d/www.conf
+    run_cmd "`sed -i "s/{{PHP_FPM_USER}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
+    run_cmd "`sed -i "s/{{PHP_FPM_USER_GROUP}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
+    run_cmd "`sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
     echo -e php install success. `date` >> install.log
 else
     echo -e php install fail. `date` >> install.log
