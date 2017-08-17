@@ -13,10 +13,19 @@ function ensure_dir() {
 }
 
 function ensure_user() {
-    if [ id -u $1 >/dev/null 2>&1 ]; then
+    if id -u $1 >/dev/null 2>&1 ; then
         echo "user exists"
     else
         run_cmd "useradd $1 -s /sbin/nologin"
     fi
 }
+
+function remove_dir() {
+    if [ ! -d $1 ]; then
+        echo "dir don't exists"
+    else 
+        run_cmd "rm -rf $1"
+    fi
+}
+
 

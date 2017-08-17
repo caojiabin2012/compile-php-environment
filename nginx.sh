@@ -21,7 +21,7 @@ fi
 ensure_dir "$NGINX_PATH"
 ensure_user "$NGINX_USER"
 ensure_dir "$package/nginx"
-rm -rf $package/nginx/*
+remove_dir "$package/nginx/*"
 if [ ! -f "$package/nginx-$NGINX_VERSION.tar.gz" ]; then
     wget -O $package/nginx-$NGINX_VERSION.tar.gz $NGINX_DOWNLOAD_URL 
 fi
@@ -33,8 +33,6 @@ make install
 if [ $? == 0 ]; then
     echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
     cp -rf $prj_path/nginx-config/* $NGINX_PATH/
-    #sed -i "s/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf
-    #sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf
     run_cmd "`sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf`"
     run_cmd "`sed -i "s/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf`"
 else
