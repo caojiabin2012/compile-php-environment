@@ -16,11 +16,6 @@ sudo make install
 sudo ldconfig
 make clean
 
-cd $libs/nghttp2/1.24.0
-./configure
-make 
-make clean
-
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
 if [ ! -f "$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
@@ -30,7 +25,7 @@ fi
 tar -zxvf $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz -C $package/swoole/ --strip-components 1
 cd $package/swoole 
 $PHP_PATH/bin/phpize
-./configure --with-php-config=$PHP_PATH/bin/php-config --enable-openssl --enable-sockets --enable-async-redis --enable-mysqlnd --enable-http2
+./configure --with-php-config=$PHP_PATH/bin/php-config --enable-openssl --enable-sockets --enable-async-redis --enable-mysqlnd
 make install
 if [ $? == 0 ]; then
     run_cmd "`echo -e extension=swoole.so >> $PHP_CONFIG_PATH/php.ini`" 
