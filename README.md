@@ -23,13 +23,13 @@
 │   │   └── www.conf
 │   └── php.ini
 └── tools                       常用的工具方法
-    └── base.sh
-    ├── config.sh               配置文件
-    ├── init.sh                 初始化脚本
-    ├── install.log             log
-    ├── nginx.sh                nginx安装脚本
-    ├── php.sh                  php安装脚本
-    ├── README.md
+|   └── base.sh
+├── config.sh               配置文件
+├── init.sh                 初始化脚本
+├── install.log             log
+├── nginx.sh                nginx安装脚本
+├── php.sh                  php安装脚本
+├── README.md
 ```
 
 # 流程分析
