@@ -10,10 +10,6 @@ CentOS           | 支持
 Ubuntu           | 支持
 Mac              | 调试中
 
-*     支持
-* Ubuntu    支持
-* Mac       调试中
-
 # 目录分析
 ```
 ├── ext                             PHP扩展
