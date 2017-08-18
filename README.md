@@ -1,4 +1,4 @@
-# 源码编译PHP运行环境，并不是只能作为开发环境，生产环境也没问题！
+# 源码编译定制您的PHP运行环境，开发环境和生产环境均可！
 
 # 能做什么
 * 一键编译PHP开发环境，包含了一些常用扩展如：redis、yaf、mongodb、swoole。
@@ -30,7 +30,7 @@
     ├── nginx.sh                nginx安装脚本
     ├── php.sh                  php安装脚本
     ├── README.md
-    ```
+```
 
 # 流程分析
 * config.sh配置相应的信息：比如nginx监听端口、php-fpm监听端口等
