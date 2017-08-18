@@ -16,6 +16,11 @@ sudo make install
 sudo ldconfig
 make clean
 
+cd $libs/nghttp2/1.24.0
+./configure
+make 
+make clean
+
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
 if [ ! -f "$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
