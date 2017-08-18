@@ -64,13 +64,16 @@ Mac              |  调试中
 * 因为生产环境基本不会在本机搭建mysql，平时开发时大家基本都是用测试环境数据库，本地的mysql并不是很重要，以后可能考虑加上。
 
 # 项目名称由来XxOoEnvironment
-* CompilePHPEnvironment     编译php版本
-* DockerPHPEnvironment      Docker PHP版本(下一个开源项目)
-* CompilePythonEnvironment  编译python版本 
-* DockerPythonEnvironmenti  Docker Python版本
-* CompileGoEnvironment      ... 
-* DockeGoEnvironment        ...
-* ... 喜欢学习+分享的你可以一起参与进来，90后的我们一起追赶80后吧！
+CompilePHPEnvironment    | 编译php版本
+-------------------------| --------------
+DockerPHPEnvironment     | Docker PHP版本(下一个开源项目)
+CompilePythonEnvironment | 编译python版本 
+DockerPythonEnvironmenti | Docker Python版本
+CompileGoEnvironment     | ... 
+DockeGoEnvironment       | ...
+...                      | ...
+
+喜欢学习+分享的你可以一起参与进来，90后的我们一起追赶80后吧！
 
 # 开源协议
 * 第三方类库版权参照对应作者或组织
