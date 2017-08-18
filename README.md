@@ -13,7 +13,6 @@
 │   ├── swoole.sh
 │   └── yaf.sh
 ├── libs                        第三方类库
-    └── base.sh
 ├── nginx-config                nginx配置文件
 │   ├── conf
 │   │   └── nginx.conf
@@ -25,6 +24,7 @@
 │   │   └── www.conf
 │   └── php.ini
 └── tools                       常用的工具方法
+    └── base.sh
 ├── config.sh                   配置文件
 ├── init.sh                     初始化脚本
 ├── install.log                 log
@@ -33,4 +33,4 @@
 ├── README.md
 ```
 
-# 用到的第三方类库版权归对应作者或组织，本人写的没有任何版权，欢迎使用！
+# 第三方类库版权归对应作者或组织，本人写的没有任何版权，欢迎使用！
