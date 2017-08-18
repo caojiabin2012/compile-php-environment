@@ -1,8 +1,8 @@
-# CompilePHPEnvironment 源码编译PHP运行环境，并不是只能作为开发环境，生产环境也没问题！
+# 源码编译PHP运行环境，并不是只能作为开发环境，生产环境也没问题！
 
 # 能做什么
 * 一键编译PHP开发环境，包含了一些常用扩展如：redis、yaf、mongodb、swoole。
-* 可扩展行很强，相信您都懂点linux，再参考下已经写好的shell脚本，复制一个稍微改改，便可以使用，将节省下的时间去撩妹。
+* 可扩展行很强，相信您都懂linux哪怕是一点也好，再参考下已经写好的shell脚本，复制一个稍微改改，便可以使用，将节省下的时间去撩妹。
 
 # 目录分析
 ```
@@ -24,11 +24,11 @@
 │   └── php.ini
 └── tools                       常用的工具方法
     └── base.sh
-    ├── config.sh                   配置文件
-    ├── init.sh                     初始化脚本
-    ├── install.log                 log
-    ├── nginx.sh                    nginx安装脚本
-    ├── php.sh                      php安装脚本
+    ├── config.sh               配置文件
+    ├── init.sh                 初始化脚本
+    ├── install.log             log
+    ├── nginx.sh                nginx安装脚本
+    ├── php.sh                  php安装脚本
     ├── README.md
     ```
 
@@ -56,7 +56,7 @@
 
 # 项目名称由来XxOoEnvironment
 * CompilePHPEnvironment     编译版本
-* DockerPHPEnvironment      下一个开源项目
+* DockerPHPEnvironment      Docker版本(下一个开源项目)
 * CompilePythonEnvironment 
 * DockerPythonEnvironment
 * CompileGoEnvironment 
@@ -66,4 +66,3 @@
 # 开源协议
 * 第三方类库版权参照对应作者或组织
 * 本人写的没有任何版权欢迎使用
-
