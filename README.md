@@ -6,29 +6,29 @@
 
 # 目录分析
 ```
-├── ext                         PHP扩展
+├── ext                             PHP扩展
 │   ├── mongodb.sh
 │   ├── redis.sh
 │   ├── swoole.sh
 │   └── yaf.sh
-├── libs                        第三方类库
-├── nginx-config                nginx配置文件
+├── libs                            第三方类库
+├── nginx-config                    nginx配置文件
 │   ├── conf
 │   │   └── nginx.conf
 │   └── vhosts
-│       └── admin.jiabin.cn.conf
-├── php-config                  php配置文件
+│       └── admin.jiabin.cn.conf    提供了一个nginx结合swoole_http_server使用的配置文件
+├── php-config                      php配置文件
 │   ├── php-fpm.conf
 │   ├── php-fpm.d
 │   │   └── www.conf
 │   └── php.ini
-└── tools                       常用的工具方法
+└── tools                           常用的工具方法
 |   └── base.sh
-├── config.sh               配置文件
-├── init.sh                 初始化脚本
-├── install.log             log
-├── nginx.sh                nginx安装脚本
-├── php.sh                  php安装脚本
+├── config.sh                       配置文件
+├── init.sh                         初始化脚本
+├── install.log                     log
+├── nginx.sh                        nginx安装脚本
+├── php.sh                          php安装脚本
 ├── README.md
 ```
 
