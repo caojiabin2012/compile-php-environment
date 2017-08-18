@@ -30,3 +30,7 @@ PHP_EXT_REDIS_VERSION=3.1.3
 # ext mongodb 
 PHP_EXT_MONGODB_DOWNLOAD_URL=http://pecl.php.net/get/mongodb-1.2.9.tgz
 PHP_EXT_MONGODB_VERSION=1.2.9 
+
+# lib hiredis
+LIB_HIREDIS_DOWNLOAD_URL=https://github.com/redis/hiredis/archive/v0.13.3.tar.gz
+LIB_HIREDIS_VERSION=0.13.3

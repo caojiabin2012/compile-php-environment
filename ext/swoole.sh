@@ -10,11 +10,17 @@ source $prj_path/tools/base.sh
 package=$prj_path/package
 libs=$prj_path/libs
 
-cd $libs/hiredis/0.13.3
+ensure_dir "$package/hiredis"
+remove_dir "$package/hiredis/*"
+if [ ! -f "$package/hiredis-$LIB_HIREDIS_VERSION.tgr.gz" ]; then
+    wget -O $package/hiredis-$LIB_HIREDIS_VERSION.tgr.gz $LIB_HIREDIS_DOWNLOAD_URL 
+fi
+
+tar -zxvf $package/hiredis-$LIB_HIREDIS_VERSION.tgr.gz -C $package/hiredis/ --strip-components 1
+cd $package/hiredis 
 make -j
 sudo make install
 sudo ldconfig
-make clean
 
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
