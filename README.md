@@ -35,6 +35,8 @@
 # 流程分析
 * config.sh配置相应的信息：比如nginx监听端口、php-fpm监听端口等
 * 安装的程序会读取相应的配置，每个shell脚本(nginx.sh、php.sh、和ext目录下的shell)都可以单独安装，也可以通过init.sh串联起来整套安装。
+* 安装成功会将对应的nginx-conf和php-conf拷贝到对应的目录，也会根据你在config.sh配置的端口进行更新。
+* 所以你先看下config.sh配置对应的安装目录和开发的端口即可。
 
 # 使用方法
 * git clone https://github.com/caojiabin2012/CompilePHPEnvironment.git
@@ -55,13 +57,13 @@
 * 因为生产环境基本不会在本机搭建mysql，平时开发时大家基本都是用测试环境数据库，本地的mysql并不是很重要，以后可能考虑加上。
 
 # 项目名称由来XxOoEnvironment
-* CompilePHPEnvironment     编译版本
-* DockerPHPEnvironment      Docker版本(下一个开源项目)
-* CompilePythonEnvironment 
-* DockerPythonEnvironment
-* CompileGoEnvironment 
-* DockeGoEnvironment
-* ... 喜欢分享的你可以一起参与进来，90后的我们一起追赶80后吧！
+* CompilePHPEnvironment     编译php版本
+* DockerPHPEnvironment      Docker PHP版本(下一个开源项目)
+* CompilePythonEnvironment  编译python版本 
+* DockerPythonEnvironmenti  Docker Python版本
+* CompileGoEnvironment      ... 
+* DockeGoEnvironment        ...
+* ... 喜欢学习+分享的你可以一起参与进来，90后的我们一起追赶80后吧！
 
 # 开源协议
 * 第三方类库版权参照对应作者或组织
