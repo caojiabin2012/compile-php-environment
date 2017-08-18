@@ -35,7 +35,7 @@
 # 流程分析
 * config.sh配置相应的信息：比如nginx监听端口、php-fpm监听端口等
 * 安装的程序会读取相应的配置，每个shell脚本(nginx.sh、php.sh、和ext目录下的shell)都可以单独安装，也可以通过init.sh串联起来整套安装。
-* 安装成功会将对应的nginx-conf和php-conf拷贝到对应的目录，也会根据你在config.sh配置的端口进行更新。
+* 安装成功会将对应的nginx-config和php-config拷贝到对应的目录，也会根据你在config.sh配置的端口进行更新。
 * 所以你先看下config.sh配置对应的安装目录和开发的端口即可。
 
 # 使用方法
