@@ -6,6 +6,7 @@
 * 浏览器：本机ip/index.php
 
 # 目录分析
+```
 ├── ext                         PHP扩展
 │   ├── mongodb.sh
 │   ├── redis.sh
@@ -30,5 +31,6 @@
 ├── nginx.sh                    nginx安装脚本
 ├── php.sh                      php安装脚本
 ├── README.md
+```
 
 # 用到的第三方类库版权归对应作者或组织，本人写的没有任何版权，欢迎使用！
