@@ -8,6 +8,13 @@ source $prj_path/config.sh
 source $prj_path/tools/base.sh
 
 package=$prj_path/package
+libs=$prj_path/libs
+
+cd $libs/hiredis/0.13.3
+make -j
+sudo make install
+sudo ldconfig
+make clean
 
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
