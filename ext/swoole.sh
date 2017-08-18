@@ -18,7 +18,7 @@ fi
 tar -zxvf $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz -C $package/swoole/ --strip-components 1
 cd $package/swoole 
 $PHP_PATH/bin/phpize
-./configure --with-php-config=$PHP_PATH/bin/php-config
+./configure --with-php-config=$PHP_PATH/bin/php-config --enable-openssl --enable-sockets --enable-async-redis --enable-mysqlnd --enable-http2
 make install
 if [ $? == 0 ]; then
     run_cmd "`echo -e extension=swoole.so >> $PHP_CONFIG_PATH/php.ini`" 
