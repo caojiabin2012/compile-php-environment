@@ -43,6 +43,7 @@
 * cd CompilePHPEnvironment
 * bash init.sh
 * 执行浏览器：本机ip/index.php
+* 没有将安装的php添加的环境变量中，因为绝对路径也一样的，如果你有需要可以自己将php的bin路径写到$PATH中即可。
 
 # 安装失败需要怎么处理
 * 作者已经很努力的调试CentOS和Ubuntu了，将缺少的类库都写到了程序中。在使用中如果您发现还是有遗漏的类库，如果能解决欢迎提交代码，如果不能，欢迎来此提交issue：https://github.com/caojiabin2012/CompilePHPEnvironment/issues/new
