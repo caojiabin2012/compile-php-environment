@@ -10,7 +10,7 @@ CentOS           |  支持
 Ubuntu           |  支持
 Mac              |  调试中
 
-windows 就老实的用XAMPP或MAMP吧真心不错！
+windows 就老实的用XAMPP或WAMP吧真心不错！
 # 目录分析
 ```
 ├── ext                             PHP扩展
