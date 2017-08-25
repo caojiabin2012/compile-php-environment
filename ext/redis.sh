@@ -17,8 +17,13 @@ fi
 
 tar -zxvf $package/redis-$PHP_EXT_REDIS_VERSION.tgz -C $package/redis/ --strip-components 1
 cd $package/redis 
-$PHP_PATH/bin/phpize
-./configure --with-php-config=$PHP_PATH/bin/php-config
+if [ -f "$PHP_PATH/bin/phpize" ]; then
+    $PHP_PATH/bin/phpize
+    ./configure --with-php-config=$PHP_PATH/bin/php-config
+else
+    phpize
+    ./configure
+fi
 make install
 if [ $? == 0 ]; then
     run_cmd "`echo -e extension=redis.so >> $PHP_CONFIG_PATH/php.ini`" 

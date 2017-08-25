@@ -15,8 +15,13 @@ if [ ! -f "$package/mongodb-$PHP_EXT_MONGODB_VERSION.tgz" ]; then
 fi
 tar -zxvf $package/mongodb-$PHP_EXT_MONGODB_VERSION.tar -C $package/mongodb/ --strip-components 1
 cd $package/mongodb 
-${PHP_PATH}/bin/phpize
-./configure --with-php-config=$PHP_PATH/bin/php-config
+if [ -f "$PHP_PATH/bin/phpize" ]; then
+    $PHP_PATH/bin/phpize
+    ./configure --with-php-config=$PHP_PATH/bin/php-config
+else
+    phpize
+    ./configure
+fi
 make install 
 if [ $? == 0 ]; then
     run_cmd "`echo -e extension=mongodb.so >> $PHP_CONFIG_PATH/php.ini`" 

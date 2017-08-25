@@ -16,8 +16,13 @@ if [ ! -f "$package/yaf-$PHP_EXT_YAF_VERSION.tgz" ]; then
 fi
 tar -zxvf $package/yaf-$PHP_EXT_YAF_VERSION.tgz -C $package/yaf/ --strip-components 1
 cd $package/yaf 
-$PHP_PATH/bin/phpize
-./configure --with-php-config=$PHP_PATH/bin/php-config
+if [ -f "$PHP_PATH/bin/phpize" ]; then
+    $PHP_PATH/bin/phpize
+    ./configure --with-php-config=$PHP_PATH/bin/php-config
+else
+    phpize
+    ./configure
+fi
 make install 
 if [ $? == 0 ]; then
     run_cmd "`echo -e extension=yaf.so >> $PHP_CONFIG_PATH/php.ini`"
