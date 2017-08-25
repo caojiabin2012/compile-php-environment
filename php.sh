@@ -67,6 +67,8 @@ if [ $? == 0 ]; then
     run_cmd "`sed -i "s/{{PHP_FPM_USER}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
     run_cmd "`sed -i "s/{{PHP_FPM_USER_GROUP}}/$PHP_FPM_USER/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
     run_cmd "`sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $PHP_CONFIG_PATH/php-fpm.d/www.conf`" 
+    run_cmd "ln -s $PHP_PATH/bin/* /usr/local/bin/"
+    run_cmd "ln -s $PHP_PATH/sbin/* /usr/local/bin/"
     echo -e php install success. `date` >> install.log
 else
     echo -e php install fail. `date` >> install.log
