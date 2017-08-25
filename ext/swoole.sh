@@ -24,7 +24,7 @@ sudo ldconfig
 
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
-if [ ! -f "$package/yaf-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
+if [ ! -f "$package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz" ]; then
     wget -O $package/swoole-$PHP_EXT_SWOOLE_VERSION.tgz $PHP_EXT_SWOOLE_DOWNLOAD_URL 
 fi
 
