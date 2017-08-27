@@ -19,8 +19,8 @@ fi
 tar -zxvf $package/hiredis-$LIB_HIREDIS_VERSION.tgr.gz -C $package/hiredis/ --strip-components 1
 cd $package/hiredis 
 make -j
-sudo make install
-sudo ldconfig
+make install
+ldconfig
 
 ensure_dir "$package/swoole"
 remove_dir "$package/swoole/*"
