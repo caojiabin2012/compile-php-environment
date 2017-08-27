@@ -43,13 +43,22 @@ elif which apt-get >/dev/null; then
     apt-get install -y libjpeg-dev
     apt-get install -y libpng-dev 
 
-    # mcrypt
-    #apt-get install -y libmcrypt-dev
     apt-get install -y m4 autoconf
 
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
+
+# mcrypt
+ensure_dir "$package/libmcrypt"
+remove_dir "$package/libmcrypt/*"
+if [ ! -f "$package/php-$PHP_VERION.tar.bz2" ]; then
+    wget -O $package/libmcrypt.tar.gz ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/libmcrypt/libmcrypt-2.5.7.tar.gz
+fi
+tar -zxvf $package/libmcrypt.tar.gz -C $package/libmcrypt/ --strip-components 1
+cd $package/libmcrypt
+./configure --prefix=/usr/local/libmcrypt
+make && make install
 
 ensure_user "$PHP_FPM_USER"
 ensure_dir "$package/php"
@@ -60,7 +69,7 @@ fi
 
 tar -jxvf $package/php-$PHP_VERSION.tar.bz2 -C $package/php/ --strip-components 1
 cd $package/php 
-./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
+./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --with-mcrypt=/usr/local/libmcrypt --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
 make install
 if [ $? == 0 ]; then
     cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
