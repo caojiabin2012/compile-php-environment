@@ -11,9 +11,9 @@ package=$prj_path/package
 
 # openssl
 if which yum >/dev/null; then
-    run_cmd "yum install -y openssl openssl-devel"
+    run_cmd "yum install -y openssl openssl-devel make"
 elif which apt-get >/dev/null; then
-    apt install -y libltdl-dev libssl-dev libpcre3 libpcre3-dev
+    run_cmd "apt install -y libltdl-dev libssl-dev libpcre3 libpcre3-dev make"
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
