@@ -37,13 +37,12 @@ elif which apt-get >/dev/null; then
     apt-get install -y libcurl4-openssl-dev
 
     # openssl
-    apt install -y libltdl-dev libssl-dev
+    apt install -y m4 g++ make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libc-ares-dev libjemalloc-dev libsystemd-dev libspdylay-dev
 
     # GD
     apt-get install -y libjpeg-dev
     apt-get install -y libpng-dev 
-
-    apt-get install -y m4 autoconf
+ 
 
 elif which brew >/dev/null; then
     echo "Darwin"
