@@ -35,6 +35,7 @@ if [ $? == 0 ]; then
     cp -rf $prj_path/nginx-config/* $NGINX_PATH/
     run_cmd "`sed -i "s/{{PHP_FASTCGI_LISTEN_PORT}}/$PHP_FASTCGI_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf`"
     run_cmd "`sed -i "s/{{NGINX_LISTEN_PORT}}/$NGINX_LISTEN_PORT/" $NGINX_PATH/conf/nginx.conf`"
+    run_cmd "ln -s $NGINX_PATH/sbin/* /usr/local/bin/"
 else
     echo -e nginx install fail. `date` >> install.log
 fi
