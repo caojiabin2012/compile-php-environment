@@ -27,6 +27,10 @@ PHP_EXT_YAF_VERSION=3.0.5
 PHP_EXT_YAC_DOWNLOAD_URL=http://pecl.php.net/get/yac-2.0.2.tgz
 PHP_EXT_YAC_VERSION=2.0.2 
 
+# ext yar
+PHP_EXT_YAR_DOWNLOAD_URL=http://pecl.php.net/get/yar-2.0.3.tgz
+PHP_EXT_YAR_VERSION=2.0.3 
+
 # ext redis
 PHP_EXT_REDIS_DOWNLOAD_URL=http://pecl.php.net/get/redis-3.1.3.tgz
 PHP_EXT_REDIS_VERSION=3.1.3 
