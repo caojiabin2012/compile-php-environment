@@ -17,7 +17,9 @@ windows 就老实的用XAMPP或WAMP吧真心不错！
 │   ├── mongodb.sh
 │   ├── redis.sh
 │   ├── swoole.sh
-│   └── yaf.sh
+│   ├── yac.sh
+│   ├── yaf.sh
+│   └── yar.sh
 ├── libs                            第三方类库
 ├── nginx-config                    nginx配置文件
 │   ├── conf
