@@ -23,6 +23,10 @@ PHP_EXT_SWOOLE_VERSION=1.9.18
 PHP_EXT_YAF_DOWNLOAD_URL=http://pecl.php.net/get/yaf-3.0.5.tgz
 PHP_EXT_YAF_VERSION=3.0.5 
 
+# ext yac
+PHP_EXT_YAC_DOWNLOAD_URL=http://pecl.php.net/get/yac-2.0.2.tgz
+PHP_EXT_YAC_VERSION=2.0.2 
+
 # ext redis
 PHP_EXT_REDIS_DOWNLOAD_URL=http://pecl.php.net/get/redis-3.1.3.tgz
 PHP_EXT_REDIS_VERSION=3.1.3 
