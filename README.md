@@ -48,14 +48,14 @@ windows 就老实的用XAMPP或WAMP吧真心不错！
 * 所以你先看下config.sh配置对应的安装目录和开发的端口即可。
 
 # 使用方法
-* git clone https://github.com/caojiabin2012/CompilePHPEnvironment.git
-* cd CompilePHPEnvironment
+* git clone https://github.com/caojiabin2012/compile-php-environment.git
+* cd compile-php-environment
 * bash init.sh
 * 执行浏览器：本机ip/index.php
 * 没有将安装的php添加的环境变量中，因为绝对路径也一样的，如果你有需要可以自己将php的bin路径写到$PATH中即可。
 
 # 安装失败需要怎么处理
-* 作者已经很努力的调试CentOS和Ubuntu了，将缺少的类库都写到了程序中。在使用中如果您发现还是有遗漏的类库，如果能解决欢迎提交代码，如果不能，欢迎来此提交issue：https://github.com/caojiabin2012/CompilePHPEnvironment/issues/new
+* 作者已经很努力的调试CentOS和Ubuntu了，将缺少的类库都写到了程序中。在使用中如果您发现还是有遗漏的类库，如果能解决欢迎提交代码，如果不能，欢迎来此提交issue：https://github.com/caojiabin2012/compile-php-environment/issues/new
 * 提交的issue一定要写好系统名称和版本哦！
 
 # 为何会开发此脚本
@@ -67,14 +67,14 @@ windows 就老实的用XAMPP或WAMP吧真心不错！
 * 因为生产环境基本不会在本机搭建mysql，平时开发时大家基本都是用测试环境数据库，本地的mysql并不是很重要，以后可能考虑加上。
 
 # 项目名称由来XxOoEnvironment
-CompilePHPEnvironment    | 编译php版本
--------------------------| --------------
-DockerPHPEnvironment     | Docker PHP版本(下一个开源项目)
-CompilePythonEnvironment | 编译python版本 
-DockerPythonEnvironmenti | Docker Python版本
-CompileGoEnvironment     | ... 
-DockeGoEnvironment       | ...
-...                      | ...
+compile-php-environment    | 编译php版本
+---------------------------| --------------
+docker-php-environment     | Docker PHP版本(下一个开源项目)
+compile-python-environment | 编译python版本 
+docker-python-environment  | Docker Python版本
+compile-go-environment     | ... 
+docke-go-environment       | ...
+...                        | ...
 
 喜欢学习+分享的你可以一起参与进来，90后的我们一起追赶80后吧！
 
