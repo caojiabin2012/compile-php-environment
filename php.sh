@@ -68,7 +68,7 @@ fi
 
 tar -jxvf $package/php-$PHP_VERSION.tar.bz2 -C $package/php/ --strip-components 1
 cd $package/php 
-./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --with-mcrypt=/usr/local/libmcrypt --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
+./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --with-mcrypt=/usr/local/libmcrypt --with-openssl --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --disable-fileinfo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
 make install
 if [ $? == 0 ]; then
     cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
