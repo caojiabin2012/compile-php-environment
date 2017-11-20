@@ -51,7 +51,7 @@ fi
 # mcrypt
 ensure_dir "$package/libmcrypt"
 remove_dir "$package/libmcrypt/*"
-if [ ! -f "$package/php-$PHP_VERION.tar.bz2" ]; then
+if [ ! -f "$package/libmcrpt.tar.gz" ]; then
     wget -O $package/libmcrypt.tar.gz ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/libmcrypt/libmcrypt-2.5.7.tar.gz
 fi
 tar -zxvf $package/libmcrypt.tar.gz -C $package/libmcrypt/ --strip-components 1
