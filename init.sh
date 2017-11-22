@@ -11,13 +11,14 @@ source $prj_path/config.sh
 #ps -ef | grep php-fpm| grep -v grep|awk '{print $2}' | xargs kill -9
 #ps -ef | grep nginx| grep -v grep|awk '{print $2}' | xargs kill -9
 
-# install
-bash nginx.sh
-bash php.sh
-bash ext/redis.sh
-bash ext/mongodb.sh
-bash ext/yaf.sh
-bash ext/swoole.sh
+# install php ext
+for ext_file in ext/*
+do
+    if test -f $ext_file
+    then
+        bash $ext_file
+    fi
+done
 
 # start server
 $NGINX_PATH/sbin/nginx
