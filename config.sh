@@ -9,15 +9,15 @@ PHP_FPM_USER=fpm
 PHP_FASTCGI_LISTEN_PORT=9000
 
 # nginx
-NGINX_PATH=/usr/local/software/nginx/v1121
-NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.12.1.tar.gz
-NGINX_VERSION=1.12.1
+NGINX_PATH=/usr/local/software/nginx/v1122
+NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.12.2.tar.gz
+NGINX_VERSION=1.12.2
 NGINX_LISTEN_PORT=80
 NGINX_USER=nginx
 
 # ext swoole
-PHP_EXT_SWOOLE_DOWNLOAD_URL=http://pecl.php.net/get/swoole-1.9.22.tgz
-PHP_EXT_SWOOLE_VERSION=1.9.22
+PHP_EXT_SWOOLE_DOWNLOAD_URL=http://pecl.php.net/get/swoole-1.9.23.tgz
+PHP_EXT_SWOOLE_VERSION=1.9.23
 
 # ext yaf
 PHP_EXT_YAF_DOWNLOAD_URL=http://pecl.php.net/get/yaf-2.3.5.tgz
@@ -36,8 +36,8 @@ PHP_EXT_REDIS_DOWNLOAD_URL=http://pecl.php.net/get/redis-2.2.8.tgz
 PHP_EXT_REDIS_VERSION=2.2.8 
 
 # ext mongodb 
-PHP_EXT_MONGODB_DOWNLOAD_URL=http://pecl.php.net/get/mongodb-1.2.9.tgz
-PHP_EXT_MONGODB_VERSION=1.2.9 
+PHP_EXT_MONGODB_DOWNLOAD_URL=http://pecl.php.net/get/mongodb-1.3.4.tgz
+PHP_EXT_MONGODB_VERSION=1.3.4 
 
 # lib hiredis
 LIB_HIREDIS_DOWNLOAD_URL=https://github.com/redis/hiredis/archive/v0.13.3.tar.gz
