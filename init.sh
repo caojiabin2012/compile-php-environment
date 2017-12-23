@@ -11,6 +11,8 @@ source $prj_path/config.sh
 #ps -ef | grep php-fpm| grep -v grep|awk '{print $2}' | xargs kill -9
 #ps -ef | grep nginx| grep -v grep|awk '{print $2}' | xargs kill -9
 
+bash nginx.sh
+bash php.sh
 # install php ext
 for ext_file in ext/*
 do
