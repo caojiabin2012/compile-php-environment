@@ -11,7 +11,7 @@ PHP_FASTCGI_LISTEN_PORT=9000
 # nginx
 NGINX_PATH=/usr/local/software/nginx/v1122
 NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.12.2.tar.gz
-NGINX_VERSION=1.12.1
+NGINX_VERSION=1.12.2
 NGINX_LISTEN_PORT=80
 NGINX_USER=nginx
 
