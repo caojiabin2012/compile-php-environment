@@ -26,8 +26,8 @@ if [ ! -f "$package/ssh2-$PHP_EXT_SSH2_VERSION.tgz" ]; then
     wget -O $package/ssh2-$PHP_EXT_SSH2_VERSION.tgz $PHP_EXT_SSH2_DOWNLOAD_URL 
 fi
 
-tar -zxvf $package/ssh2-$PHP_EXT_SSH_VERSION.tgz -C $package/ssh/ --strip-components 1
-cd $package/ssh 
+tar -zxvf $package/ssh2-$PHP_EXT_SSH_VERSION.tgz -C $package/ssh2/ --strip-components 1
+cd $package/ssh2 
 if [ -f "$PHP_PATH/bin/phpize" ]; then
     $PHP_PATH/bin/phpize
     ./configure --with-php-config=$PHP_PATH/bin/php-config
