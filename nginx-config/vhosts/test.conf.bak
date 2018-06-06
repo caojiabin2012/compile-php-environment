@@ -1,6 +1,6 @@
 server{
 	listen 80;
-	server_name ;
+	server_name xx;
 	index index.php index.shtml index.html index.htm;
 	root /filepath;
     location / {
@@ -20,6 +20,6 @@ server{
     location ~ /\.ht* {
         deny all;
     }
-    access_log  /log_path/nginx/logs/xxx_access.log  main;
-    error_log /log_path/nginx/logs/xxx_error.log notice;
+    access_log logs/xxx_access.log  main;
+    error_log logs/xxx_error.log notice;
 }
