@@ -20,8 +20,9 @@ PHP_EXT_SWOOLE_DOWNLOAD_URL=http://pecl.php.net/get/swoole-1.9.23.tgz
 PHP_EXT_SWOOLE_VERSION=1.9.23
 
 # ext yaf
-PHP_EXT_YAF_DOWNLOAD_URL=http://pecl.php.net/get/yaf-3.0.5.tgz
-PHP_EXT_YAF_VERSION=3.0.5 
+#PHP_EXT_YAF_DOWNLOAD_URL=http://pecl.php.net/get/yaf-3.0.7.tgz
+PHP_EXT_YAF_DOWNLOAD_URL=https://github.com/laruence/yaf/archive/yaf-3.0.7.tar.gz
+PHP_EXT_YAF_VERSION=3.0.7 
 
 # ext yac
 PHP_EXT_YAC_DOWNLOAD_URL=http://pecl.php.net/get/yac-2.0.2.tgz
