@@ -1,0 +1,25 @@
+server{
+	listen 80;
+	server_name ;
+	index index.php index.shtml index.html index.htm;
+	root /filepath;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+
+    location ^~ /(shell|application|modules|protected) {
+        deny all;
+    }
+    location ~ /\.ht* {
+        deny all;
+    }
+    access_log  /log_path/nginx/logs/xxx_access.log  main;
+    error_log /log_path/nginx/logs/xxx_error.log notice;
+}
