@@ -11,53 +11,14 @@ package=$prj_path/package
 echo -e php start `date`  >> install.log
 
 if which yum >/dev/null; then
-    # xml
-    yum install -y libxml2 libxml2-devel
-
-    # curl
-    yum install -y curl curl-devel
-
-    # openssl
-    yum install -y openssl openssl-devel
-
-    # GD
-    yum install -y libjpeg libjpeg-devel
-    yum install -y libpng libpng-devel
-
-    # mcrypt
-    yum install -y libmcrypt libmcrypt-devel
-
-    yum install -y m4 autoconf
+    yum install -y m4 autoconf libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel
 
 elif which apt-get >/dev/null; then
-    # xml
-    apt-get install -y libxml2-dev
-
-    # curl 
-    apt-get install -y libcurl4-openssl-dev
-
-    # openssl
-    apt install -y m4 g++ make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libc-ares-dev libjemalloc-dev
-
-    # GD
-    apt-get install -y libjpeg-dev
-    apt-get install -y libpng-dev 
+    apt-get install -y m4 autoconf libxml2 libxml2-dev binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libc-ares-dev libjemalloc-dev libcurl4-openssl-dev bzip2 libbz2-dev curl libjpeg-dev libpng-dev libpng12-dev  libfreetype6-dev libgmp-dev libmcrypt-dev libreadline6-dev libxslt1-dev
  
-
 elif which brew >/dev/null; then
     echo "Darwin"
 fi
-
-# mcrypt
-ensure_dir "$package/libmcrypt"
-remove_dir "$package/libmcrypt/*"
-if [ ! -f "$package/libmcrpt.tar.gz" ]; then
-    wget -O $package/libmcrypt.tar.gz ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/libmcrypt/libmcrypt-2.5.7.tar.gz
-fi
-tar -zxvf $package/libmcrypt.tar.gz -C $package/libmcrypt/ --strip-components 1
-cd $package/libmcrypt
-./configure --prefix=/usr/local/libmcrypt
-make && make install
 
 ensure_user "$PHP_FPM_USER"
 ensure_dir "$package/php"
@@ -68,7 +29,7 @@ fi
 
 tar -jxvf $package/php-$PHP_VERSION.tar.bz2 -C $package/php/ --strip-components 1
 cd $package/php 
-./configure  --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --with-mcrypt=/usr/local/libmcrypt --with-openssl --enable-fpm --enable-pcntl --enable-mysqlnd --enable-opcache --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-shmop --enable-zip --enable-ftp --enable-soap --enable-xml --enable-mbstring --disable-rpath --disable-debug --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pcre-regex --with-iconv --with-zlib --with-mhash --with-xmlrpc --with-curl --with-imap-ssl --enable-bcmath --enable-fileinfo
+./configure --prefix=$PHP_PATH --with-config-file-path=$PHP_CONFIG_PATH --enable-fpm --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-soap --with-libxml-dir --with-xmlrpc --with-openssl --with-mcrypt --with-mhash --with-pcre-regex --with-sqlite3 --with-zlib --enable-bcmath --with-iconv --with-bz2 --enable-calendar --with-curl --with-cdb --enable-dom --enable-exif --enable-fileinfo --enable-filter --with-pcre-dir --enable-ftp --with-gd --with-openssl-dir --with-jpeg-dir --with-png-dir --with-zlib-dir --with-freetype-dir --enable-gd-native-ttf --enable-gd-jis-conv --with-gettext --with-gmp --with-mhash --enable-json --enable-mbstring --enable-mbregex --enable-mbregex-backtrack --with-libmbfl --with-onig --enable-pdo --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-zlib-dir --with-pdo-sqlite --with-readline --enable-session --enable-shmop --enable-simplexml --enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-libxml-dir --with-xsl --enable-zip --enable-mysqlnd-compression-support --with-pear --enable-opcache
 make install
 if [ $? == 0 ]; then
     cp -rf $prj_path/php-config/* $PHP_CONFIG_PATH/
@@ -78,6 +39,7 @@ if [ $? == 0 ]; then
     run_cmd "ln -s $PHP_PATH/bin/* /usr/local/bin/"
     run_cmd "ln -s $PHP_PATH/sbin/* /usr/local/bin/"
     echo -e php install success. `date` >> install.log
+
     # install composer
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
