@@ -28,7 +28,7 @@ fi
 
 tar -zxvf $package/nginx-$NGINX_VERSION.tar.gz -C $package/nginx/ --strip-components 1 
 cd $package/nginx 
-./configure --prefix=$NGINX_PATH --user=$NGINX_USER --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module
+./configure --prefix=$NGINX_PATH --user=$NGINX_USER --with-pcre --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-ipv6
 make install
 if [ $? == 0 ]; then
     echo -e "<?php phpinfo();"  > $NGINX_PATH/html/index.php 
