@@ -1,17 +1,17 @@
 #!bin/bash
 
 # php
-PHP_PATH=/usr/local/software/php/v7118
-PHP_CONFIG_PATH=/usr/local/software/php/v7118/etc
-PHP_DOWNLOAD_URL=http://cn.php.net/distributions/php-7.1.18.tar.bz2
-PHP_VERSION=7.1.18
+PHP_PATH=/usr/local/software/php/v7123
+PHP_CONFIG_PATH=/usr/local/software/php/v7123/etc
+PHP_DOWNLOAD_URL=http://cn.php.net/distributions/php-7.1.23.tar.bz2
+PHP_VERSION=7.1.23
 PHP_FPM_USER=fpm
 PHP_FASTCGI_LISTEN_PORT=9000
 
 # nginx
-NGINX_PATH=/usr/local/software/nginx/v1150
-NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.15.0.tar.gz
-NGINX_VERSION=1.15.0
+NGINX_PATH=/usr/local/software/nginx/v1155
+NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.15.5.tar.gz
+NGINX_VERSION=1.15.5
 NGINX_LISTEN_PORT=80
 NGINX_USER=nginx
 
@@ -34,7 +34,7 @@ PHP_EXT_YAR_VERSION=2.0.3
 
 # ext redis
 PHP_EXT_REDIS_DOWNLOAD_URL=http://pecl.php.net/get/redis-3.1.5.tgz
-PHP_EXT_REDIS_VERSION=3.1.5 
+PHP_EXT_REDIS_VERSION=4.1.1 
 
 # ext mongodb 
 PHP_EXT_MONGODB_DOWNLOAD_URL=http://pecl.php.net/get/mongodb-1.3.4.tgz
