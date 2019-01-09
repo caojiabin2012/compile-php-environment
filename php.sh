@@ -14,7 +14,7 @@ if which yum >/dev/null; then
     yum install -y m4 autoconf libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel
 
 elif which apt-get >/dev/null; then
-    apt-get install -y m4 autoconf libxml2 libxml2-dev binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libc-ares-dev libjemalloc-dev libcurl4-openssl-dev bzip2 libbz2-dev curl libjpeg-dev libpng-dev libpng12-dev  libfreetype6-dev libgmp-dev libmcrypt-dev libreadline6-dev libxslt1-dev
+    apt-get install -y m4 autoconf libxml2 libxml2-dev binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libc-ares-dev libjemalloc-dev libcurl4-openssl-dev bzip2 libbz2-dev curl libjpeg-dev libpng-dev libpng12-dev  libfreetype6-dev libgmp-dev libmcrypt-dev libreadline6-dev libxslt1-devi epel-release libmcrypt-devel
  
 elif which brew >/dev/null; then
     echo "Darwin"
