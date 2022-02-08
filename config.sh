@@ -3,15 +3,15 @@
 # php
 PHP_PATH=/usr/local/software/php/v7128
 PHP_CONFIG_PATH=/usr/local/software/php/v7128/etc
-PHP_DOWNLOAD_URL=http://cn.php.net/distributions/php-7.1.28.tar.bz2
-PHP_VERSION=7.1.28
+PHP_DOWNLOAD_URL=http://cn.php.net/distributions/php-7.4.27.tar.bz2
+PHP_VERSION=7.4.27
 PHP_FPM_USER=fpm
 PHP_FASTCGI_LISTEN_PORT=9000
 
 # nginx
 NGINX_PATH=/usr/local/software/nginx/v11511
-NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.15.11.tar.gz
-NGINX_VERSION=1.15.11
+NGINX_DOWNLOAD_URL=http://nginx.org/download/nginx-1.21.6.tar.gz
+NGINX_VERSION=1.21.6
 NGINX_LISTEN_PORT=80
 NGINX_USER=nginx
 
