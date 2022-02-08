@@ -14,13 +14,13 @@ source $prj_path/config.sh
 bash nginx.sh
 bash php.sh
 # install php ext
-for ext_file in ext/*
-do
-    if test -f $ext_file
-    then
-        bash $ext_file
-    fi
-done
+# for ext_file in ext/*
+# do
+#     if test -f $ext_file
+#     then
+#         bash $ext_file
+#     fi
+# done
 
 # start server
 $NGINX_PATH/sbin/nginx
